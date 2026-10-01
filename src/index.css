@@ -6,12 +6,21 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    color: #0f172a; /* high-contrast slate-900 */
+    background-color: #f1f5f9; /* Slate 100 base for clear contrast with white cards */
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     letter-spacing: -0.025em;
+    color: #0f172a;
   }
 }
 

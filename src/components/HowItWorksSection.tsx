@@ -89,50 +89,50 @@ export const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 lg:py-28 bg-slate-50/70 border-t border-slate-200/80">
+    <section id="how-it-works" className="py-12 lg:py-16 bg-white border-t border-slate-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold uppercase tracking-wider">
+        <div className="max-w-3xl mx-auto text-center space-y-3">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-300 text-brand-700 text-xs font-bold uppercase tracking-wider">
             <span>End-to-End Workflow</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-950 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
             From Published Offer to Verified Local Match
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed">
             A transparent 5-step operational pipeline connecting buyers and merchants with verified accuracy and direct interaction.
           </p>
         </div>
 
         {/* 5 Simplified Frontend Steps */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-5 gap-4 relative text-left">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-5 gap-4 relative text-left">
           {simplifiedSteps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.num}
-                className="relative p-6 rounded-2xl bg-white border border-slate-200 shadow-subtle hover:shadow-card hover:border-brand-300 transition-all flex flex-col justify-between"
+                className="relative p-6 rounded-2xl bg-white border border-slate-300 shadow-card hover:shadow-card-hover hover:border-brand-400 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-sm flex items-center justify-center shadow-sm">
+                  <div className="flex items-center justify-between mb-3.5">
+                    <span className="w-8 h-8 rounded-full bg-brand-600 text-white font-extrabold text-sm flex items-center justify-center shadow-sm">
                       {step.num}
                     </span>
                     <Icon className="w-5 h-5 text-slate-400" />
                   </div>
 
-                  <h3 className="text-base font-bold text-navy-950 mb-2">
+                  <h3 className="text-base font-extrabold text-slate-900 mb-2">
                     {step.title}
                   </h3>
 
                   {step.publisher ? (
-                    <div className="text-xs text-slate-600 space-y-2">
-                      <p><strong className="text-slate-700">Sell:</strong> {step.publisher}</p>
-                      <p><strong className="text-slate-700">Buy:</strong> {step.buyer}</p>
+                    <div className="text-xs text-slate-700 space-y-2">
+                      <p><strong className="text-slate-900">Sell:</strong> {step.publisher}</p>
+                      <p><strong className="text-slate-900">Buy:</strong> {step.buyer}</p>
                     </div>
                   ) : (
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs text-slate-700 leading-relaxed font-normal">
                       {step.detail}
                     </p>
                   )}
@@ -140,8 +140,8 @@ export const HowItWorksSection: React.FC = () => {
 
                 {idx < 4 && (
                   <div className="hidden md:block absolute -right-2.5 top-1/2 -translate-y-1/2 z-10">
-                    <span className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 text-[10px]">
-                      →
+                    <span className="w-5 h-5 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center text-slate-700 text-[10px] font-bold">
+                      &rarr;
                     </span>
                   </div>
                 )}
@@ -151,23 +151,23 @@ export const HowItWorksSection: React.FC = () => {
         </div>
 
         {/* Merchant of Record & Direct Transaction Notice */}
-        <div className="mt-8 p-5 rounded-xl bg-blue-50/80 border border-blue-200 text-left max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+        <div className="mt-8 p-5 rounded-2xl bg-blue-50/90 border border-blue-200 text-left max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 shadow-sm">
           <Info className="w-6 h-6 text-brand-700 shrink-0 mt-0.5 sm:mt-0" />
-          <div className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-            <span className="font-bold text-navy-950 block sm:inline mr-1">
+          <div className="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">
+            <span className="font-extrabold text-slate-900 block sm:inline mr-1">
               Important Transaction Structure:
             </span>
-            CommerceTrust is <span className="font-semibold text-brand-800">NOT the merchant of record</span>. CommerceTrust does not own stock, take possession of goods, fulfil orders, or process payments between buyers and sellers. Payment and fulfilment occur directly between the transacting parties.
+            CommerceTrust is <span className="font-bold text-brand-800 underline decoration-brand-300">NOT the merchant of record</span>. CommerceTrust does not own stock, take possession of goods, fulfil orders, or process payments between buyers and sellers. Payment and fulfilment occur directly between the transacting parties.
           </div>
         </div>
 
         {/* 4 User Workflow Mini-Cards */}
-        <div className="mt-14">
+        <div className="mt-10">
           <div className="text-center mb-6">
-            <h3 className="text-xl font-bold text-navy-950">
+            <h3 className="text-xl font-extrabold text-slate-900">
               Tailored User Journeys
             </h3>
-            <p className="text-xs sm:text-sm text-slate-500">
+            <p className="text-xs sm:text-sm text-slate-600">
               How participants engage with the CommerceTrust platform in practice
             </p>
           </div>
@@ -178,13 +178,13 @@ export const HowItWorksSection: React.FC = () => {
               return (
                 <div
                   key={flowItem.title}
-                  className="p-5 rounded-2xl bg-white border border-slate-200 shadow-subtle hover:border-brand-300 transition-colors"
+                  className="p-5 rounded-2xl bg-slate-50 border border-slate-300 shadow-card hover:border-brand-400 transition-colors"
                 >
                   <div className="flex items-center space-x-2.5 mb-3.5">
-                    <div className="w-8 h-8 rounded-lg bg-slate-100 text-brand-600 flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-white border border-slate-300 text-brand-600 flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <h4 className="text-sm font-bold text-navy-950">
+                    <h4 className="text-sm font-extrabold text-slate-900">
                       {flowItem.title}
                     </h4>
                   </div>
@@ -192,10 +192,10 @@ export const HowItWorksSection: React.FC = () => {
                   <div className="space-y-1.5 text-xs">
                     {flowItem.flow.map((stepTxt, sIdx) => (
                       <div key={stepTxt} className="flex items-center space-x-2">
-                        <span className="w-4 h-4 rounded-full bg-slate-100 text-slate-600 font-mono text-[10px] flex items-center justify-center shrink-0 font-bold">
+                        <span className="w-4 h-4 rounded-full bg-slate-200 border border-slate-300 text-slate-800 font-mono text-[10px] flex items-center justify-center shrink-0 font-bold">
                           {sIdx + 1}
                         </span>
-                        <span className="text-slate-600 truncate">{stepTxt}</span>
+                        <span className="text-slate-700 truncate font-medium">{stepTxt}</span>
                       </div>
                     ))}
                   </div>
@@ -206,43 +206,43 @@ export const HowItWorksSection: React.FC = () => {
         </div>
 
         {/* Expandable Detailed Platform Workflow (12 Steps) */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 text-center">
           <button
             type="button"
             onClick={() => setShowDetailedWorkflow(!showDetailedWorkflow)}
-            className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 text-sm font-semibold transition-all shadow-subtle focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
+            className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 text-sm font-bold transition-all shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
           >
             <span>{showDetailedWorkflow ? 'Hide' : 'View'} Detailed 12-Step Platform Specification</span>
             <ChevronDown
-              className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
+              className={`w-4 h-4 text-slate-600 transition-transform duration-200 ${
                 showDetailedWorkflow ? 'rotate-180' : ''
               }`}
             />
           </button>
 
           {showDetailedWorkflow && (
-            <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 shadow-card text-left max-w-5xl mx-auto animate-fadeIn">
-              <div className="border-b border-slate-100 pb-4 mb-6">
-                <h4 className="text-lg font-bold text-navy-950">
+            <div className="mt-6 p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-300 shadow-card text-left max-w-5xl mx-auto animate-fadeIn">
+              <div className="border-b border-slate-200 pb-3 mb-5">
+                <h4 className="text-lg font-extrabold text-slate-900">
                   Full 12-Stage Algorithmic &amp; Operational Cycle
                 </h4>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-600">
                   Formal lifecycle of an offer from submission to verified transaction and feedback
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
                 {detailedSteps.map((dStep) => (
-                  <div key={dStep.id} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
+                  <div key={dStep.id} className="p-3.5 rounded-xl bg-white border border-slate-300">
                     <div className="flex items-center space-x-2 mb-1.5">
-                      <span className="w-6 h-6 rounded-md bg-navy-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                      <span className="w-6 h-6 rounded-md bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center shrink-0">
                         {dStep.id}
                       </span>
-                      <span className="font-bold text-sm text-navy-950">
+                      <span className="font-bold text-sm text-slate-900">
                         {dStep.title}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-600 leading-normal pl-8">
+                    <p className="text-xs text-slate-700 leading-normal pl-8">
                       {dStep.desc}
                     </p>
                   </div>

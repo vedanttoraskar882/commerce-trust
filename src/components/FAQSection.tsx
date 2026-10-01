@@ -7,7 +7,7 @@ interface FAQItem {
 }
 
 export const FAQSection: React.FC = () => {
-  const [openIndices, setOpenIndices] = useState<number[]>([0]); // First open by default
+  const [openIndices, setOpenIndices] = useState<number[]>([0]);
 
   const faqs: FAQItem[] = [
     {
@@ -77,25 +77,25 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-slate-50/70 border-t border-slate-200/80">
+    <section id="faq" className="py-12 lg:py-16 bg-white border-t border-slate-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
         
         {/* Section Header */}
-        <div className="text-center space-y-4 mb-12">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold uppercase tracking-wider">
+        <div className="text-center space-y-3 mb-9">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-300 text-brand-700 text-xs font-bold uppercase tracking-wider">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Frequently Asked Questions</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-950 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
             Common Inquiries
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto font-medium">
             Everything you need to know about the CommerceTrust verification methodology, commercial principles, and operational model.
           </p>
         </div>
 
-        {/* Accordion Container */}
-        <div className="space-y-3">
+        {/* Accordion Container with increased spacing between FAQ items */}
+        <div className="space-y-4 sm:space-y-4.5">
           {faqs.map((faq, index) => {
             const isOpen = openIndices.includes(index);
             const questionId = `faq-q-${index}`;
@@ -104,7 +104,11 @@ export const FAQSection: React.FC = () => {
             return (
               <div
                 key={index}
-                className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-subtle hover:border-slate-300 transition-colors"
+                className={`bg-white border transition-all duration-150 rounded-2xl overflow-hidden ${
+                  isOpen
+                    ? 'border-brand-500 shadow-card ring-1 ring-brand-500/20'
+                    : 'border-slate-300 shadow-subtle hover:border-slate-400 hover:shadow-card'
+                }`}
               >
                 <button
                   type="button"
@@ -112,12 +116,14 @@ export const FAQSection: React.FC = () => {
                   aria-controls={answerId}
                   aria-expanded={isOpen}
                   onClick={() => toggleFAQ(index)}
-                  className="w-full py-4.5 px-6 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 transition-colors"
+                  className="w-full py-5 px-6 sm:px-7 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 transition-colors"
                 >
-                  <span className="text-base font-bold text-navy-950 pr-4">
+                  <span className="text-base font-extrabold text-slate-900 pr-4">
                     {faq.question}
                   </span>
-                  <div className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-brand-50 text-brand-600' : 'text-slate-500'}`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                    isOpen ? 'rotate-180 bg-brand-100 text-brand-700' : 'bg-slate-100 text-slate-600'
+                  }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
@@ -127,7 +133,7 @@ export const FAQSection: React.FC = () => {
                     id={answerId}
                     role="region"
                     aria-labelledby={questionId}
-                    className="px-6 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100"
+                    className="px-6 sm:px-7 pb-5 pt-1 text-sm text-slate-700 leading-relaxed font-normal border-t border-slate-100"
                   >
                     <p>{faq.answer}</p>
                   </div>

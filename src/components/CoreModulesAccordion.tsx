@@ -97,32 +97,32 @@ export const CoreModulesAccordion: React.FC = () => {
   };
 
   return (
-    <div className="mt-16 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-subtle text-left max-w-5xl mx-auto">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 border-b border-slate-200">
+    <div className="mt-10 bg-white border border-slate-300 rounded-2xl p-6 sm:p-7 shadow-card text-left max-w-5xl mx-auto">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-200">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 border border-brand-200">
             <Layers className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-navy-950">
+            <h3 className="text-xl font-extrabold text-slate-900">
               Built on 11 Core Modules
             </h3>
-            <p className="text-xs sm:text-sm text-slate-500">
-              The proprietary architectural foundations powering the CommerceTrust platform
+            <p className="text-xs sm:text-sm text-slate-600">
+              The proprietary architectural foundations powering the CommerceTrust platform by TrueDeal AI Ltd
             </p>
           </div>
         </div>
-        <span className="text-xs font-semibold px-3 py-1 bg-slate-100 text-slate-700 rounded-full w-fit">
+        <span className="text-xs font-bold px-3 py-1 bg-slate-100 text-slate-800 rounded-full w-fit border border-slate-300">
           System Architecture
         </span>
       </div>
 
-      <div className="mt-6 divide-y divide-slate-100">
+      <div className="mt-4 divide-y divide-slate-200">
         {modules.map((mod, idx) => {
           const isOpen = openIndex === idx;
           const Icon = mod.icon;
           return (
-            <div key={mod.id} className="py-3">
+            <div key={mod.id} className="py-2.5">
               <button
                 type="button"
                 onClick={() => toggle(idx)}
@@ -130,22 +130,22 @@ export const CoreModulesAccordion: React.FC = () => {
                 aria-expanded={isOpen}
               >
                 <div className="flex items-center space-x-3">
-                  <span className="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                  <span className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 font-mono text-xs font-extrabold flex items-center justify-center shrink-0 border border-slate-300">
                     {String(mod.id).padStart(2, '0')}
                   </span>
                   <div>
-                    <span className="font-semibold text-sm sm:text-base text-navy-950 block">
+                    <span className="font-bold text-sm sm:text-base text-slate-900 block">
                       {mod.name}
                     </span>
-                    <span className="text-[11px] text-brand-600 font-medium">
+                    <span className="text-[11px] text-brand-700 font-bold">
                       {mod.category}
                     </span>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Icon className="w-4 h-4 text-slate-400 hidden sm:block" />
+                  <Icon className="w-4 h-4 text-slate-500 hidden sm:block" />
                   <ChevronDown
-                    className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
+                    className={`w-4 h-4 text-slate-600 transition-transform duration-200 ${
                       isOpen ? 'rotate-180 text-brand-600' : ''
                     }`}
                   />
@@ -153,7 +153,7 @@ export const CoreModulesAccordion: React.FC = () => {
               </button>
 
               {isOpen && (
-                <div className="px-12 py-3 text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50/80 rounded-xl mt-1 border border-slate-100 animate-fadeIn">
+                <div className="px-12 py-3 text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 rounded-xl mt-1 border border-slate-200 animate-fadeIn">
                   <p>{mod.description}</p>
                 </div>
               )}
