@@ -3,7 +3,6 @@ import {
   Send, 
   CheckCircle2, 
   AlertCircle, 
-  Lock, 
   Building2, 
   User, 
   Mail, 
@@ -300,14 +299,6 @@ export const PilotRequestSection: React.FC = () => {
                   </span>
                 )}
               </button>
-            </div>
-
-            {/* Mandatory Privacy Note */}
-            <div className="pt-4 border-t border-slate-800 flex items-center space-x-2 text-xs text-slate-400">
-              <Lock className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-              <span>
-                This prototype stores your request locally in this browser only. No data is transmitted to a server.
-              </span>
             </div>
 
           </form>

@@ -4,7 +4,6 @@ import {
   Send, 
   CheckCircle2, 
   AlertCircle, 
-  Lock, 
   Building2, 
   User, 
   Mail, 
@@ -272,11 +271,6 @@ export const PilotRequestModal: React.FC<PilotRequestModalProps> = ({ isOpen, on
               >
                 {isSubmitting ? 'Saving Locally...' : 'Submit Pilot Request'}
               </button>
-            </div>
-
-            <div className="pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center space-x-2">
-              <Lock className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-              <span>This prototype stores your request locally in this browser only. No data is transmitted to a server.</span>
             </div>
           </form>
         )}

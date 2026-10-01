@@ -2,19 +2,19 @@ import React from 'react';
 import { Mail, MapPin } from 'lucide-react';
 
 interface FooterProps {
-  onRequestPilot: () => void;
+  onRequestPilot?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onRequestPilot }) => {
+export const Footer: React.FC<FooterProps> = () => {
   return (
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800 pt-12 pb-10 text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 pb-10 border-b border-slate-800">
+        {/* Main Footer Content: Neatly Aligned Left & Right Columns */}
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-16 pb-10 border-b border-slate-800">
           
-          {/* Column 1: Brand & Tagline (spans 2 cols on lg) - Pure text without any logo icon */}
-          <div className="lg:col-span-2 space-y-3.5">
+          {/* Left Column: Brand & Corporate Details */}
+          <div className="max-w-lg space-y-4">
             <div className="flex flex-col text-left">
               <div className="flex items-baseline space-x-2">
                 <span className="text-2xl sm:text-[26px] font-extrabold tracking-tight text-white">
@@ -29,108 +29,93 @@ export const Footer: React.FC<FooterProps> = ({ onRequestPilot }) => {
               </span>
             </div>
 
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-normal">
+            <p className="text-sm text-slate-400 leading-relaxed font-normal">
               AI-powered verified local commerce infrastructure connecting buyers, retailers, wholesalers, restaurants and e-commerce sellers.
             </p>
 
-            <div className="pt-1">
-              <span className="inline-block text-xs font-bold tracking-wide text-brand-400 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800">
+            <div className="pt-2 text-xs text-slate-400 space-y-1.5 border-t border-slate-800/80">
+              <p className="text-slate-300 font-semibold">
                 TrueDeal AI Ltd &bull; UK Software Company
-              </span>
-            </div>
-          </div>
-
-          {/* Column 2: Platform */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-white">
-              Platform
-            </h4>
-            <ul className="space-y-2 text-sm text-slate-400 font-medium">
-              <li>
-                <a href="#platform" className="hover:text-white transition-colors">
-                  Verified Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#platform" className="hover:text-white transition-colors">
-                  Local Discovery
-                </a>
-              </li>
-              <li>
-                <a href="#platform" className="hover:text-white transition-colors">
-                  Surplus Matching
-                </a>
-              </li>
-              <li>
-                <a href="#platform" className="hover:text-white transition-colors">
-                  Supplier Discovery
-                </a>
-              </li>
-              <li>
-                <a href="#platform" className="hover:text-white transition-colors">
-                  Analytics
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Company */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-white">
-              Company
-            </h4>
-            <ul className="space-y-2 text-sm text-slate-400 font-medium">
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  Founder
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-white transition-colors">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-white transition-colors">
-                  FAQ
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Get Started & Corporate Details */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-white">
-              Get Started
-            </h4>
-            <div>
-              <button
-                type="button"
-                onClick={onRequestPilot}
-                className="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold transition-colors shadow-sm"
-              >
-                Request a Pilot
-              </button>
-            </div>
-
-            <div className="pt-2 text-xs text-slate-400 space-y-1.5 border-t border-slate-800 font-normal">
-              <p className="font-extrabold text-white text-sm">TrueDeal AI Ltd</p>
-              <p className="text-xs text-slate-300 font-medium">
+              </p>
+              <p className="text-slate-400">
                 Founder &amp; Managing Director: Amman Ahmed
               </p>
-              <p className="text-[11px] text-slate-400 flex items-center">
-                <Mail className="w-3 h-3 mr-1 text-slate-500" />
-                <span>Email: [Contact Email]</span>
-              </p>
-              <p className="text-[11px] text-slate-400 flex items-center">
-                <MapPin className="w-3 h-3 mr-1 text-slate-500" />
-                <span>Registered Office: [Registered Office Address]</span>
-              </p>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-slate-400 pt-0.5">
+                <span className="flex items-center">
+                  <Mail className="w-3 h-3 mr-1 text-slate-500" />
+                  Email: [Contact Email]
+                </span>
+                <span className="flex items-center">
+                  <MapPin className="w-3 h-3 mr-1 text-slate-500" />
+                  Registered Office: [Registered Office Address]
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Navigation: Platform & Company Columns */}
+          <div className="flex flex-row space-x-12 sm:space-x-20 lg:space-x-24 text-left">
+            {/* Column: Platform */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-white">
+                Platform
+              </h4>
+              <ul className="space-y-2.5 text-sm text-slate-400 font-medium">
+                <li>
+                  <a href="#platform" className="hover:text-white transition-colors">
+                    Verified Pricing
+                  </a>
+                </li>
+                <li>
+                  <a href="#platform" className="hover:text-white transition-colors">
+                    Local Discovery
+                  </a>
+                </li>
+                <li>
+                  <a href="#platform" className="hover:text-white transition-colors">
+                    Surplus Matching
+                  </a>
+                </li>
+                <li>
+                  <a href="#platform" className="hover:text-white transition-colors">
+                    Supplier Discovery
+                  </a>
+                </li>
+                <li>
+                  <a href="#platform" className="hover:text-white transition-colors">
+                    Analytics
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column: Company */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-white">
+                Company
+              </h4>
+              <ul className="space-y-2.5 text-sm text-slate-400 font-medium">
+                <li>
+                  <a href="#about" className="hover:text-white transition-colors">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#about" className="hover:text-white transition-colors">
+                    Founder
+                  </a>
+                </li>
+                <li>
+                  <a href="#pricing" className="hover:text-white transition-colors">
+                    Pricing
+                  </a>
+                </li>
+                <li>
+                  <a href="#faq" className="hover:text-white transition-colors">
+                    FAQ
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
