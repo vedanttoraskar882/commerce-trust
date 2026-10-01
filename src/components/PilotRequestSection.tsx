@@ -6,12 +6,9 @@ import {
   Building2, 
   User, 
   Mail, 
-  Phone, 
-  Database,
-  Clock
+  Phone 
 } from 'lucide-react';
-import { savePilotSubmission, getStoredSubmissions, STORAGE_KEY } from '../utils/storage';
-import type { PilotSubmission } from '../types';
+import { savePilotSubmission } from '../utils/storage';
 
 export const PilotRequestSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -24,8 +21,6 @@ export const PilotRequestSection: React.FC = () => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
-  const [showSavedList, setShowSavedList] = useState(false);
-  const [savedRecords, setSavedRecords] = useState<PilotSubmission[]>([]);
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -86,8 +81,6 @@ export const PilotRequestSection: React.FC = () => {
         organisationName: '',
       });
       setErrors({});
-
-      setSavedRecords(getStoredSubmissions());
     } catch (err) {
       console.error(err);
       setErrors({ form: 'An error occurred while saving locally. Please try again.' });
@@ -96,11 +89,6 @@ export const PilotRequestSection: React.FC = () => {
         setIsSubmitting(false);
       }, 500);
     }
-  };
-
-  const handleToggleSaved = () => {
-    setSavedRecords(getStoredSubmissions());
-    setShowSavedList(!showSavedList);
   };
 
   return (
@@ -302,54 +290,6 @@ export const PilotRequestSection: React.FC = () => {
             </div>
 
           </form>
-        </div>
-
-        {/* Local Storage Records Inspection */}
-        <div className="mt-6 text-center">
-          <button
-            type="button"
-            onClick={handleToggleSaved}
-            className="inline-flex items-center space-x-2 text-xs text-slate-400 hover:text-slate-200 transition-colors py-1.5 px-3 rounded-lg border border-slate-800 hover:border-slate-700 font-medium"
-          >
-            <Database className="w-3.5 h-3.5 text-brand-400" />
-            <span>
-              {showSavedList ? 'Hide' : 'Inspect'} Local Storage Submissions ({getStoredSubmissions().length})
-            </span>
-          </button>
-
-          {showSavedList && (
-            <div className="mt-3 p-4 rounded-xl bg-slate-900 border border-slate-800 text-left text-xs text-slate-300 animate-fadeIn">
-              <div className="flex items-center justify-between pb-2 border-b border-slate-800 mb-2">
-                <span className="font-mono text-brand-400 font-bold">
-                  localStorage['{STORAGE_KEY}'] ({savedRecords.length} records)
-                </span>
-                <span className="text-[11px] text-slate-400">
-                  Appended locally on device
-                </span>
-              </div>
-
-              {savedRecords.length === 0 ? (
-                <p className="text-slate-500 italic py-2">No pilot requests recorded in this browser yet.</p>
-              ) : (
-                <div className="space-y-2.5 max-h-60 overflow-y-auto pr-1">
-                  {savedRecords.map((item, i) => (
-                    <div key={i} className="p-3 rounded-lg bg-slate-950 border border-slate-800 space-y-1">
-                      <div className="flex items-center justify-between font-bold text-white">
-                        <span>{item.fullName} &bull; {item.organisationName}</span>
-                        <span className="text-[10px] text-slate-400 font-mono flex items-center">
-                          <Clock className="w-3 h-3 mr-1" />
-                          {new Date(item.submittedAt).toLocaleString()}
-                        </span>
-                      </div>
-                      <div className="text-slate-400 text-[11px]">
-                        <span>Email: {item.emailAddress}</span> | <span>Phone: {item.phoneNumber}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
         </div>
 
       </div>
